@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <LangVersion>10.0</LangVersion>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageId>EVScanner - SystemDiagnostics</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Felix De Herrera</Authors>
+	  <Description>Collects local hosts (pc) system diagnostics for error logging and telemetry.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="9.0.9" />
+  </ItemGroup>
+
+</Project>
