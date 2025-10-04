@@ -6,14 +6,27 @@
     <Nullable>enable</Nullable>
 	  <LangVersion>10.0</LangVersion>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <PackageId>EVScanner - SystemDiagnostics</PackageId>
+	  <PackageId>EVScanner_SystemDiagnostics</PackageId>
 	  <Version>1.0.0</Version>
 	  <Authors>Felix De Herrera</Authors>
-	  <Description>Collects local hosts (pc) system diagnostics for error logging and telemetry.</Description>
+	  <Description>Collects local hosts (pc) system diagnostics for error logging and telemetry.  Captures Total Memory, Free Memory, Disk Space, OS, OS Architecture, and Running Processes</Description>
+	  <Title>Local System Diagnostics Scanner</Title>
+	  <Copyright>Felix De Herrera</Copyright>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <RepositoryType>git</RepositoryType>
+	  <AnalysisLevel>latest-recommended</AnalysisLevel>
+	  <IncludeSymbols>True</IncludeSymbols>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="9.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
