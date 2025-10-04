@@ -1,4 +1,7 @@
 ﻿// ReSharper disable PossibleLossOfFraction
+
+using System.Globalization;
+
 namespace EVScanner;
 
 using System;
@@ -73,10 +76,10 @@ public static class EnvironmentScanner
 
         foreach (var line in memInfo)
         {
-            if (line.StartsWith("MemAvailable:"))
-                available = float.Parse(line.Split(':')[1].Trim().Split(' ')[0]) / 1024;
-            else if (line.StartsWith("MemTotal:"))
-                total = float.Parse(line.Split(':')[1].Trim().Split(' ')[0]) / 1024;
+            if (line.StartsWith("MemAvailable:", StringComparison.InvariantCultureIgnoreCase))
+                available = float.Parse(line.Split(':')[1].Trim().Split(' ')[0], CultureInfo.InvariantCulture.NumberFormat) / 1024;
+            else if (line.StartsWith("MemTotal:", StringComparison.InvariantCultureIgnoreCase))
+                total = float.Parse(line.Split(':')[1].Trim().Split(' ')[0], CultureInfo.InvariantCulture.NumberFormat) / 1024;
         }
 
         return new MemoryInfo
@@ -100,14 +103,14 @@ public static class EnvironmentScanner
             if (line.Contains("page size of"))
             {
                 var parts = line.Split(' ');
-                pageSize = long.Parse(parts.Last().Replace(".", ""));
+                pageSize = long.Parse(parts.Last().Replace(".", ""), CultureInfo.InvariantCulture.NumberFormat);
             }
 
-            if (line.StartsWith("Pages free"))
-                freePages = long.Parse(line.Split(':')[1].Trim().Replace(".", ""));
+            if (line.StartsWith("Pages free", StringComparison.InvariantCultureIgnoreCase))
+                freePages = long.Parse(line.Split(':')[1].Trim().Replace(".", ""), CultureInfo.InvariantCulture.NumberFormat);
 
             totalPages += line.Contains("Pages") 
-                ? long.Parse(line.Split(':')[1].Trim().Replace(".", "")) 
+                ? long.Parse(line.Split(':')[1].Trim().Replace(".", ""), CultureInfo.InvariantCulture.NumberFormat) 
                 : 0;
         }
 
