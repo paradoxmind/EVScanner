@@ -20,6 +20,9 @@
 	  <RepositoryUrl>https://github.com/paradoxmind/EVScanner</RepositoryUrl>
 	  <PackageTags>System Diagnostics; Environment Scanner; </PackageTags>
 	  <PackAsTool>True</PackAsTool>
+	  <BaseOutputPath></BaseOutputPath>
+	  <SignAssembly>False</SignAssembly>
+	  <PackageOutputPath>C:\_dev\_moss\EVScanner\Nuget_Out\</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +34,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Nuget_Out\" />
   </ItemGroup>
 
 </Project>
